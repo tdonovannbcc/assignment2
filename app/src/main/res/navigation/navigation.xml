@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/title_fragment">
+
+    <fragment
+        android:id="@+id/title_fragment"
+        android:name="work.nbcc.rick_and_morty_quiz.TitleFragment"
+        android:label="Rick and Morty"
+        tools:layout="@layout/title_fragment">
+        <action
+            android:id="@+id/title_fragment_to_game_fragment"
+            app:destination="@id/game_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/game_fragment"
+        android:name="work.nbcc.rick_and_morty_quiz.GameFragment"
+        android:label="Quiz Time"
+        tools:layout="@layout/game_fragment">
+        <action
+            android:id="@+id/game_fragment_to_game_over_fragment"
+            app:destination="@id/gameover_fragment"
+            app:popUpTo="@id/title_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameover_fragment"
+        android:name="work.nbcc.rick_and_morty_quiz.GameOverFragment"
+        android:label="Game Over"
+        tools:layout="@layout/gameover_fragment">
+        <argument
+            android:name="score"
+            android:defaultValue="Your Score: 0/10"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rules_fragment"
+        android:name="work.nbcc.rick_and_morty_quiz.RulesFragment"
+        android:label="The Rules"
+        tools:layout="@layout/rules_fragment" />
+
+    <fragment
+        android:id="@+id/about_fragment"
+        android:name="work.nbcc.rick_and_morty_quiz.AboutFragment"
+        android:label="About Rick and Morty"
+        tools:layout="@layout/about_fragment" />
+
+</navigation>
